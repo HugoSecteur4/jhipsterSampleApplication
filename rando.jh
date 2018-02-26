@@ -1,0 +1,41 @@
+enum Sexe {
+    MASCULIN, FEMININ, AUTRE
+  }
+
+entity Randonneur {
+  prenom String required
+  nom String required
+  sexe Sexe
+  age Integer
+  dateDeNaissance ZonedDateTime
+}
+paginate Randonneur with pagination
+service Randonneur with serviceClass
+
+entity Message {
+idRandonnee Integer required
+idRandonneur Integer required
+longitude Long required min(0) max(360)
+latitude Long required min(0) max(360)
+dateHeure ZonedDateTime required
+sOS Boolean required
+freqCardiaque Integer
+}
+
+entity Randonnee {
+  lieuDeRDV String
+  denivelePositif Integer
+  duree Integer
+  date ZonedDateTime
+
+}
+paginate Randonnee with pagination
+service Randonnee with serviceClass
+
+
+relationship ManyToMany {
+    Randonneur{marcheur} to Randonnee{parcours}
+}
+relationship ManyToMany {
+    Randonneur{envoyeur} to Message{positions}
+}
