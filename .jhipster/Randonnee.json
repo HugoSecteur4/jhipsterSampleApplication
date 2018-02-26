@@ -1,0 +1,36 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "parcours",
+            "otherEntityName": "randonneur",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "marcheur"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "lieuDeRDV",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "denivelePositif",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "duree",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "changelogDate": "20180226134957",
+    "entityTableName": "randonnee",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false
+}
