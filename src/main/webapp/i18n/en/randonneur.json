@@ -1,0 +1,28 @@
+
+{
+    "jhipsterSampleApplicationApp": {
+        "randonneur" : {
+            "home": {
+                "title": "Randonneurs",
+                "createLabel": "Create a new Randonneur",
+                "createOrEditLabel": "Create or edit a Randonneur"
+            },
+            "created": "A new Randonneur is created with identifier {{ param }}",
+            "updated": "A Randonneur is updated with identifier {{ param }}",
+            "deleted": "A Randonneur is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Randonneur {{ id }}?"
+            },
+            "detail": {
+                "title": "Randonneur"
+            },
+            "prenom": "Prenom",
+            "nom": "Nom",
+            "sexe": "Sexe",
+            "age": "Age",
+            "dateDeNaissance": "Date De Naissance",
+            "marcheur": "Marcheur",
+            "envoyeur": "Envoyeur"
+        }
+    }
+}

@@ -1,0 +1,26 @@
+
+{
+    "jhipsterSampleApplicationApp": {
+        "randonnee" : {
+            "home": {
+                "title": "Randonnees",
+                "createLabel": "Créer un nouveau Randonnee",
+                "createOrEditLabel": "Créer ou éditer un Randonnee"
+            },
+            "created": "Un nouveau Randonnee a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Randonnee avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Randonnee avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Randonnee {{ id }} ?"
+            },
+            "detail": {
+                "title": "Randonnee"
+            },
+            "lieuDeRDV": "Lieu De RDV",
+            "denivelePositif": "Denivele Positif",
+            "duree": "Duree",
+            "date": "Date",
+            "parcours": "Parcours"
+        }
+    }
+}
