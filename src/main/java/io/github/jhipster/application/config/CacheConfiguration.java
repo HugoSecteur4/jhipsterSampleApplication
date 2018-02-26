@@ -42,6 +42,13 @@ public class CacheConfiguration {
             cm.createCache(io.github.jhipster.application.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(io.github.jhipster.application.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(io.github.jhipster.application.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Randonneur.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Randonneur.class.getName() + ".marcheurs", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Randonneur.class.getName() + ".envoyeurs", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Message.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Message.class.getName() + ".positions", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Randonnee.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Randonnee.class.getName() + ".parcours", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

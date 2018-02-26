@@ -1,0 +1,79 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myRandonneurLabel" jhiTranslate="jhipsterSampleApplicationApp.randonneur.home.createOrEditLabel">Create or edit a Randonneur</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!randonneur.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="randonneur.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.randonneur.prenom" for="field_prenom">Prenom</label>
+            <input type="text" class="form-control" name="prenom" id="field_prenom"
+                [(ngModel)]="randonneur.prenom" required/>
+            <div [hidden]="!(editForm.controls.prenom?.dirty && editForm.controls.prenom?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.prenom?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.randonneur.nom" for="field_nom">Nom</label>
+            <input type="text" class="form-control" name="nom" id="field_nom"
+                [(ngModel)]="randonneur.nom" required/>
+            <div [hidden]="!(editForm.controls.nom?.dirty && editForm.controls.nom?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.nom?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.randonneur.sexe" for="field_sexe">Sexe</label>
+            <select class="form-control" name="sexe" [(ngModel)]="randonneur.sexe" id="field_sexe" >
+                <option value="MASCULIN">{{'jhipsterSampleApplicationApp.Sexe.MASCULIN' | translate}}</option>
+                <option value="FEMININ">{{'jhipsterSampleApplicationApp.Sexe.FEMININ' | translate}}</option>
+                <option value="AUTRE">{{'jhipsterSampleApplicationApp.Sexe.AUTRE' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.randonneur.age" for="field_age">Age</label>
+            <input type="number" class="form-control" name="age" id="field_age"
+                [(ngModel)]="randonneur.age" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.randonneur.dateDeNaissance" for="field_dateDeNaissance">Date De Naissance</label>
+            <div class="d-flex">
+                <input id="field_dateDeNaissance" type="datetime-local" class="form-control" name="dateDeNaissance" [(ngModel)]="randonneur.dateDeNaissance"
+                />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="jhipsterSampleApplicationApp.randonneur.marcheur" for="field_marcheur">Marcheur</label>
+            <select class="form-control" id="field_marcheur" multiple name="marcheur" [(ngModel)]="randonneur.marcheurs">
+                <option [ngValue]="getSelected(randonneur.marcheurs, randonneeOption)" *ngFor="let randonneeOption of randonnees; trackBy: trackRandonneeById">{{randonneeOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="jhipsterSampleApplicationApp.randonneur.envoyeur" for="field_envoyeur">Envoyeur</label>
+            <select class="form-control" id="field_envoyeur" multiple name="envoyeur" [(ngModel)]="randonneur.envoyeurs">
+                <option [ngValue]="getSelected(randonneur.envoyeurs, messageOption)" *ngFor="let messageOption of messages; trackBy: trackMessageById">{{messageOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
